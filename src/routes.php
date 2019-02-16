@@ -32,4 +32,20 @@ $app->group('/spotify', function () use ($app) {
         $user = $authentication->authenticate($code);
         return $response->write($user);
     });
+
+    $app->get('/playlist', function (Request $request, Response $response) {
+
+    });
+
+    $app->get('/user/playlists', function (Request $request, Response $response) {
+
+    });
+});
+
+$app->get('/playlist/location', function (Request $request, Response $response) {
+
+});
+
+$app->post('/playlist/location', function (Request $request, Response $response) {
+
 });
