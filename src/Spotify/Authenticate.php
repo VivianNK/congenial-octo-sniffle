@@ -25,9 +25,7 @@ class Authenticate
             $this->session->requestAccessToken($code);
             //TODO: Store in Database
 
-            $this->api->setAccessToken($this->session->getAccessToken());
-
-            return $this->api;
+            return $this->session->getAccessToken();
         } else {
             $options = [
                 'scope' => [

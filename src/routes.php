@@ -5,13 +5,13 @@ use Slim\Http\Response;
 
 $app->group('/spotify', function () use ($app) {
 
-    $app->get('/auth', function (Request $request, Response $response) {
+    $app->get('/auth', function (Request $request, Response $response) use ($app) {
         $code = $request->getParam("code");
 
         $authentication = new \Palm\Spotify\Authenticate();
         if ($code) {
-            $api = $authentication->authenticate($code);
-            return $response->write(json_encode($api->me()));
+            $token = $authentication->authenticate($code);
+            return $response->write(json_encode($token));
         } else {
             $header = $authentication->authenticate();
             return $response->withHeader("Location", $header);
